@@ -1,35 +1,22 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import * as p5 from 'p5'
+import { ReactP5Wrapper, Sketch } from '@p5-wrapper/react'
 
-function App() {
-  const [count, setCount] = useState(0)
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+;(window as any).p5 = p5
 
-  return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+const sketch: Sketch = (p5) => {
+  p5.setup = () => p5.createCanvas(600, 400, p5.WEBGL)
+
+  p5.draw = () => {
+    p5.background(252, 247, 218)
+    p5.normalMaterial()
+  }
 }
 
-export default App
+export default function App() {
+  return (
+    <div>
+      <ReactP5Wrapper sketch={sketch} />
+    </div>
+  )
+}

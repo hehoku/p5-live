@@ -1,7 +1,6 @@
-import * as p5Type from 'p5'
-import { Sketch } from '@p5-wrapper/react'
+import { P5CanvasInstance, Sketch, SketchProps } from '@p5-wrapper/react'
 
-const Basic: Sketch = (p5: p5Type) => {
+const Basic: Sketch = (p5) => {
   const w = 600
   const h = 500
   p5.setup = () => p5.createCanvas(w, h, p5.WEBGL)
@@ -15,7 +14,7 @@ const Basic: Sketch = (p5: p5Type) => {
 }
 
 function drawCircle(
-  p5: p5Type,
+  p5: P5CanvasInstance<SketchProps>,
   centerX: number,
   centerY: number,
   radius: number,

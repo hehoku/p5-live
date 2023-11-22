@@ -1,40 +1,57 @@
-import { P5CanvasInstance, Sketch, SketchProps } from '@p5-wrapper/react'
+import { Sketch } from '@p5-wrapper/react'
 
 const Blend: Sketch = (p5) => {
   const w = 600
   const h = 500
-  p5.setup = () => p5.createCanvas(w, h)
+  p5.setup = () => {
+    p5.createCanvas(w, h)
+    p5.noLoop()
+  }
 
   p5.draw = () => {
-    p5.background(0, 0, 0)
-    p5.fill(0, 0, 0)
+    // Black background
+    p5.background(0)
 
-    p5.stroke(255, 255, 0)
-    p5.strokeWeight(3)
+    // Set foreground as white
+    p5.fill(255)
 
-    p5.rect(-100, -100, 200, 200)
-    drawCircle(p5, 0, 0, 100, 100)
-    p5.circle(0, 0, 100)
-    p5.triangle(0, -100, -100, 100, 100, 100)
+    // Set x-or / difference blend mode
+    p5.blendMode(p5.DIFFERENCE)
+
+    // Disable stroke
+    p5.noStroke()
+
+    // Center of screen
+    const x = p5.width / 2
+    const y = p5.height / 2
+
+    // Fraction of screen dim
+    const dim = p5.min(p5.width, p5.height)
+    const size = dim * 0.5
+
+    // Make a rectangle centred on the screen
+    p5.rectMode(p5.CENTER)
+    p5.rect(x, y, size, size)
+
+    // Create a circle slightly offset down and right
+    p5.push()
+    p5.translate(size / 4, size / 4)
+    p5.ellipse(x, y, size, size)
+    p5.pop()
+
+    // Create a triangle slightly offset up and left
+    p5.push()
+    p5.translate(-size / 4, -size / 4)
+    p5.triangle(
+      x,
+      y - size / 2,
+      x + size / 2,
+      y + size / 2,
+      x - size / 2,
+      y + size / 2,
+    )
+    p5.pop()
   }
-}
-
-function drawCircle(
-  p5: P5CanvasInstance<SketchProps>,
-  centerX: number,
-  centerY: number,
-  radius: number,
-  numPoints: number,
-) {
-  const angleStep = p5.TWO_PI / numPoints
-
-  p5.beginShape()
-  for (let i = 0; i < numPoints; i++) {
-    const x = centerX + radius * p5.cos(i * angleStep)
-    const y = centerY + radius * p5.sin(i * angleStep)
-    p5.curveVertex(x, y)
-  }
-  p5.endShape(p5.CLOSE)
 }
 
 export default Blend

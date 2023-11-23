@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react'
 import Basic from './libs/basic'
 import Shape from './libs/shape'
 import Blend from './libs/blend'
+import Loop from './libs/loop'
 
 interface FileMap {
   [key: string]: Sketch
@@ -13,6 +14,7 @@ const fileMap: FileMap = {
   Basic: Basic,
   Shape: Shape,
   Blend: Blend,
+  Loop: Loop,
 }
 
 export default function App() {

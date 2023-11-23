@@ -11,27 +11,41 @@ interface FileMap {
 }
 
 const fileMap: FileMap = {
-  Basic: Basic,
-  Shape: Shape,
-  Blend: Blend,
-  Loop: Loop,
+  Basic,
+  Shape,
+  Blend,
+  Loop,
 }
 
 export default function App() {
-  const defaultDemo = Object.values(fileMap)[Object.values(fileMap).length - 1]
-  const [demo, setDemo] = useState(() => defaultDemo)
+  const [currentSketch, setCurrentSketch] = useState<string>(
+    window.location.hash.slice(1) ||
+      Object.keys(fileMap)[Object.keys(fileMap).length - 1],
+  )
+  const [demo, setDemo] = useState<Sketch>(() => fileMap[currentSketch])
 
-  const handleClick = (file: string) => {
-    const selectedFile = fileMap[file]
-    if (selectedFile) {
-      setDemo(() => selectedFile)
-    }
-  }
-
-  // for dev auto refresh canvas
   useEffect(() => {
-    setDemo(() => defaultDemo)
-  }, [defaultDemo])
+    const handleHashChange = () => {
+      const sketchName = window.location.hash.slice(1)
+      if (sketchName in fileMap) {
+        setCurrentSketch(sketchName)
+      }
+    }
+
+    window.addEventListener('hashchange', handleHashChange)
+
+    return () => {
+      window.removeEventListener('hashchange', handleHashChange)
+    }
+  }, [])
+
+  useEffect(() => {
+    setDemo(() => fileMap[currentSketch])
+  }, [currentSketch])
+
+  const handleClick = (fileName: string) => {
+    window.location.hash = fileName
+  }
 
   return (
     <div className="mx-auto flex min-h-screen w-2/3 flex-row items-center justify-center gap-x-10 px-10">
@@ -42,7 +56,7 @@ export default function App() {
             href={`#${fileName}`}
             onClick={() => handleClick(fileName)}
             className={`mb-4 font-bold hover:underline ${
-              fileName === demo.name ? 'text-green-500 underline' : 'bg-red-200'
+              currentSketch === fileName ? 'text-green-500 underline' : ''
             }`}
           >
             {fileName}

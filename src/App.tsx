@@ -42,7 +42,7 @@ export default function App() {
             href={`#${fileName}`}
             onClick={() => handleClick(fileName)}
             className={`mb-4 font-bold hover:underline ${
-              fileName === demo.name ? 'text-green-500 underline' : ''
+              fileName === demo.name ? 'text-green-500 underline' : 'bg-red-200'
             }`}
           >
             {fileName}

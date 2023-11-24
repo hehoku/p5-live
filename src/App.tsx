@@ -5,6 +5,7 @@ import Basic from './libs/basic'
 import Shape from './libs/shape'
 import Blend from './libs/blend'
 import Loop from './libs/loop'
+import Rotate from './libs/rotate'
 
 interface FileMap {
   [key: string]: Sketch
@@ -15,6 +16,7 @@ const fileMap: FileMap = {
   Shape,
   Blend,
   Loop,
+  Rotate
 }
 
 export default function App() {

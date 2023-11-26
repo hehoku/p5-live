@@ -8,6 +8,7 @@ import Loop from './libs/loop'
 import Rotate from './libs/rotate'
 import Lerp from './libs/lerp'
 import Repeat from './libs/repeat'
+import TrigonometryMotion from './libs/trigonometry-motion'
 
 interface FileMap {
   [key: string]: Sketch
@@ -21,6 +22,7 @@ const fileMap: FileMap = {
   Rotate,
   Lerp,
   Repeat,
+  TrigonometryMotion,
 }
 
 export default function App() {

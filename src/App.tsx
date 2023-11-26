@@ -7,6 +7,7 @@ import Blend from './libs/blend'
 import Loop from './libs/loop'
 import Rotate from './libs/rotate'
 import Lerp from './libs/lerp'
+import Repeat from './libs/repeat'
 
 interface FileMap {
   [key: string]: Sketch
@@ -18,7 +19,8 @@ const fileMap: FileMap = {
   Blend,
   Loop,
   Rotate,
-  Lerp
+  Lerp,
+  Repeat,
 }
 
 export default function App() {

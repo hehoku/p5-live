@@ -9,6 +9,7 @@ import Rotate from './libs/rotate'
 import Lerp from './libs/lerp'
 import Repeat from './libs/repeat'
 import TrigonometryMotion from './libs/trigonometry-motion'
+import Mouse from './libs/mouse'
 
 interface FileMap {
   [key: string]: Sketch
@@ -23,6 +24,7 @@ const fileMap: FileMap = {
   Lerp,
   Repeat,
   TrigonometryMotion,
+  Mouse,
 }
 
 export default function App() {

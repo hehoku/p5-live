@@ -10,6 +10,7 @@ import Lerp from './libs/lerp'
 import Repeat from './libs/repeat'
 import TrigonometryMotion from './libs/trigonometry-motion'
 import Mouse from './libs/mouse'
+import RandomRects from './libs/random-rects'
 
 interface FileMap {
   [key: string]: Sketch
@@ -25,6 +26,7 @@ const fileMap: FileMap = {
   Repeat,
   TrigonometryMotion,
   Mouse,
+  RandomRects,
 }
 
 export default function App() {

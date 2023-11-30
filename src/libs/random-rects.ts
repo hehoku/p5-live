@@ -6,6 +6,9 @@ const RandomRects: Sketch = (p5) => {
   p5.setup = () => {
     p5.createCanvas(w, h)
     p5.noLoop()
+    setInterval(() => {
+      p5.redraw()
+    }, 3000)
   }
 
   p5.draw = () => {

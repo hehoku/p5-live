@@ -11,6 +11,7 @@ import Repeat from './libs/repeat'
 import TrigonometryMotion from './libs/trigonometry-motion'
 import Mouse from './libs/mouse'
 import RandomRects from './libs/random-rects'
+import Polygon from './libs/polygon'
 
 interface FileMap {
   [key: string]: Sketch
@@ -27,6 +28,7 @@ const fileMap: FileMap = {
   TrigonometryMotion,
   Mouse,
   RandomRects,
+  Polygon,
 }
 
 export default function App() {

@@ -12,6 +12,7 @@ import TrigonometryMotion from './libs/trigonometry-motion'
 import Mouse from './libs/mouse'
 import RandomRects from './libs/random-rects'
 import Polygon from './libs/polygon'
+import LerpHexagon from './libs/lerp-hexagon'
 
 interface FileMap {
   [key: string]: Sketch
@@ -29,6 +30,7 @@ const fileMap: FileMap = {
   Mouse,
   RandomRects,
   Polygon,
+  LerpHexagon,
 }
 
 export default function App() {

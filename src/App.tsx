@@ -13,6 +13,7 @@ import Mouse from './libs/mouse'
 import RandomRects from './libs/random-rects'
 import Polygon from './libs/polygon'
 import LerpHexagon from './libs/lerp-hexagon'
+import Rings from './libs/rings'
 
 interface FileMap {
   [key: string]: Sketch
@@ -31,6 +32,7 @@ const fileMap: FileMap = {
   RandomRects,
   Polygon,
   LerpHexagon,
+  Rings,
 }
 
 export default function App() {

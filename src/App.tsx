@@ -1,19 +1,20 @@
 import { ReactP5Wrapper, Sketch } from '@p5-wrapper/react'
 import { useEffect, useState } from 'react'
 
+import AnimGrid from './libs/animating-grid'
 import Basic from './libs/basic'
-import Shape from './libs/shape'
 import Blend from './libs/blend'
-import Loop from './libs/loop'
-import Rotate from './libs/rotate'
 import Lerp from './libs/lerp'
-import Repeat from './libs/repeat'
-import TrigonometryMotion from './libs/trigonometry-motion'
-import Mouse from './libs/mouse'
-import RandomRects from './libs/random-rects'
-import Polygon from './libs/polygon'
 import LerpHexagon from './libs/lerp-hexagon'
+import Loop from './libs/loop'
+import Mouse from './libs/mouse'
+import Polygon from './libs/polygon'
+import RandomRects from './libs/random-rects'
+import Repeat from './libs/repeat'
 import Rings from './libs/rings'
+import Rotate from './libs/rotate'
+import Shape from './libs/shape'
+import TrigonometryMotion from './libs/trigonometry-motion'
 
 interface FileMap {
   [key: string]: Sketch
@@ -33,6 +34,7 @@ const fileMap: FileMap = {
   Polygon,
   LerpHexagon,
   Rings,
+  AnimGrid,
 }
 
 export default function App() {
